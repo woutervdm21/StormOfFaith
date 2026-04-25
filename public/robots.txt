@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://stormoffaith.netlify.app/sitemap.xml
+Sitemap: https://stormoffaith.co.za/sitemap.xml

@@ -177,6 +177,9 @@ export default function Contact() {
               >
                 {sending ? 'Sending…' : 'Send Message'}
               </button>
+              <p className="text-[10px] dark:text-snow/20 text-ink-soft/50 text-center leading-relaxed">
+                Your details are used only to respond to your enquiry and will not be shared with third parties — in accordance with POPIA.
+              </p>
             </form>
           </div>
         </div>
