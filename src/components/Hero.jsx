@@ -29,10 +29,15 @@ export default function Hero() {
       onMouseMove={handleMouseMove}
       className="relative min-h-screen overflow-hidden dark:bg-void bg-pearl flex items-center"
     >
-      {/* Cursor spotlight */}
+      {/* Cursor spotlight — dark */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none hidden dark:block"
         style={{ background: `radial-gradient(700px circle at ${mouse.x} ${mouse.y}, rgba(124,92,252,0.07), transparent 42%)` }}
+      />
+      {/* Cursor spotlight — light */}
+      <div
+        className="absolute inset-0 pointer-events-none dark:hidden"
+        style={{ background: `radial-gradient(700px circle at ${mouse.x} ${mouse.y}, rgba(124,92,252,0.16), transparent 42%)` }}
       />
 
       {/* Aurora blobs */}
