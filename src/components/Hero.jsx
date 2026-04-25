@@ -196,7 +196,7 @@ export default function Hero() {
           style={{ animation: visible ? 'fadeUp 0.9s ease 0.6s forwards' : 'none', opacity: 0 }}
         >
           {[
-            { num: '50+', label: 'Projects Completed' },
+            { num: '15+', label: 'Projects Completed' },
             { num: '5+',  label: 'Years Experience'   },
             { num: '3',   label: 'Design Disciplines'  },
           ].map(s => (

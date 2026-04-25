@@ -3,9 +3,7 @@ import { createContext, useContext, useState, useEffect } from 'react'
 const ThemeContext = createContext()
 
 export function ThemeProvider({ children }) {
-  const [dark, setDark] = useState(() => {
-    return localStorage.getItem('theme') !== 'light'
-  })
+  const [dark, setDark] = useState(true)
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark)
