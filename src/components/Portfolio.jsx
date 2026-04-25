@@ -136,6 +136,24 @@ export default function Portfolio() {
             {cat.tagline}
           </p>
 
+          {/* Launch special banner */}
+          <div className="mb-8 rounded-2xl border border-ember/30 dark:bg-ember/8 bg-ember/5
+            px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3
+            shadow-[0_0_24px_rgba(255,133,71,0.12)]">
+            <div className="flex items-center gap-3">
+              <span className="text-ember text-lg">✦</span>
+              <div>
+                <p className="text-[11px] tracking-[0.25em] uppercase text-ember font-semibold">Launch Special</p>
+                <p className="text-sm dark:text-snow/70 text-ink-soft mt-0.5">20% off all packages — for a limited time only.</p>
+              </div>
+            </div>
+            <a href="#contact"
+              className="flex-shrink-0 px-5 py-2 rounded-xl border border-ember/50 text-ember text-xs font-medium
+                tracking-wide hover:bg-ember hover:text-white transition-all duration-200 hover:shadow-[0_0_18px_rgba(255,133,71,0.4)]">
+              Claim Discount
+            </a>
+          </div>
+
           {/* Pricing grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {cat.plans.map((plan, i) => (

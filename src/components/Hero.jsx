@@ -24,6 +24,7 @@ export default function Hero() {
 
   return (
     <section
+      id="home"
       ref={sectionRef}
       onMouseMove={handleMouseMove}
       className="relative min-h-screen overflow-hidden dark:bg-void bg-pearl flex items-center"

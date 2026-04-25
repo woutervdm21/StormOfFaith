@@ -5,6 +5,11 @@ export default function PricingCard({ title, description, price, features, featu
         ? 'dark:bg-neon/10 bg-neon/6 border-2 border-neon/55 shadow-[0_0_40px_rgba(124,92,252,0.2)]'
         : 'dark:bg-layer/55 bg-white border dark:border-white/[0.06] border-neon/10 dark:hover:border-neon/30 hover:border-neon/30 hover:shadow-[0_0_20px_rgba(124,92,252,0.1)]'
     }`}>
+      {/* Launch special badge */}
+      <span className="absolute -top-2.5 -right-2.5 px-2.5 py-1 rounded-lg bg-ember text-white text-[9px] tracking-widest uppercase font-semibold shadow-[0_0_14px_rgba(255,133,71,0.55)] whitespace-nowrap">
+        20% OFF
+      </span>
+
       {featured && (
         <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-neon text-white text-[10px] tracking-widest uppercase font-medium whitespace-nowrap">
           Popular
