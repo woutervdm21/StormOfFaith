@@ -1,7 +1,7 @@
 import { useFadeIn } from '../hooks/useFadeIn'
 
 const stats = [
-  { num: '50+', label: 'Projects'     },
+  { num: '15+', label: 'Projects'     },
   { num: '5+',  label: 'Years'        },
   { num: '3',   label: 'Disciplines'  },
 ]
