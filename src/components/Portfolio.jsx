@@ -50,14 +50,16 @@ const categories = [
   },
   {
     id: 'digital',
-    label: 'Digital & Web',
-    tagline: 'From websites to web banners — every pixel with purpose.',
+    label: 'Web Development',
+    tagline: 'From design assets to full web apps — custom-built with purpose, pixel by pixel.',
     plans: [
-      { title: 'Website Graphic Set',       description: 'For businesses needing simple, clean visuals for their site.',                          price: 'R650 – R1 200',   salePrice: 'R520 – R960',     features: ['Hero banner', 'CTA button graphic', 'Footer / sidebar visual', 'Profile + cover banner', 'Instagram stories & highlights'] },
-      { title: 'Full Website Graphics Pack', description: 'For a full site launch or complete visual refresh.',                                    price: 'R1 500 – R3 500', salePrice: 'R1 200 – R2 800', features: ['Desktop + mobile hero banner', '3 section graphics', '3 custom icons or badges', 'All files for web + mobile'] },
-      { title: 'Website Build + Hosting',   description: 'A fully integrated website with development, hosting, and custom branding.',            price: 'R3 000 – R6 000', salePrice: 'R2 400 – R4 800', features: ['Fully built website (1–6 pages)', 'Custom graphics & banners', 'Mobile + tablet responsive', 'Hosting & domain setup', 'Light / dark mode'] },
-      /* { title: 'Social + Web Launch Combo',  description: 'Matching visuals across website + social platforms.',                               price: 'R1 500 – R3 000', salePrice: 'R1 200 – R2 400', features: ['Website hero banner', '3 web section graphics', '3 branded Instagram posts', '5-icon story highlight set'] }, */
-      /* { title: 'Digital Ad Campaign Kit',    description: 'Branding that carries across email + web presence.',                                price: 'R1 000 – R2 000', salePrice: 'R800 – R1 600',   features: ['5 ad sizes (square, landscape, vertical)', 'Facebook & Instagram ads', 'Email header banner', 'Favicon + branded button set'] }, */
+      { title: 'Website Design Assets',  description: 'Professional web graphics for businesses that already have a developer.',                  price: 'R650 – R1 200',    salePrice: 'R520 – R960',     features: ['Hero banner', 'CTA button graphic', 'Profile & cover banners', 'Instagram story highlights', 'All web-ready file formats'] },
+      { title: 'Website Build',          description: 'A fully designed, responsive website — custom built from the ground up.',                  price: 'R3 000 – R6 000',  salePrice: 'R2 400 – R4 800', features: ['1–6 pages', 'Custom design & branding', 'Mobile + tablet responsive', 'Contact form', 'Hosting & domain setup', 'Light / dark mode'] },
+      { title: 'Web Application',        description: 'Custom web systems built around your business workflows and customer needs.',               price: 'R8 000 – R25 000+', salePrice: 'R6 400 – R20 000+', features: ['E-commerce store', 'Calendar & booking systems', 'Customer login portals', 'Admin dashboards', 'API & third-party integrations', 'Database-driven content'] },
+      /* { title: 'Website Graphic Set',       description: 'For businesses needing simple, clean visuals for their site.',                       price: 'R650 – R1 200',    salePrice: 'R520 – R960',     features: ['Hero banner', 'CTA button graphic', 'Footer / sidebar visual', 'Profile + cover banner', 'Instagram stories & highlights'] }, */
+      /* { title: 'Full Website Graphics Pack', description: 'For a full site launch or complete visual refresh.',                                price: 'R1 500 – R3 500',  salePrice: 'R1 200 – R2 800', features: ['Desktop + mobile hero banner', '3 section graphics', '3 custom icons or badges', 'All files for web + mobile'] }, */
+      /* { title: 'Social + Web Launch Combo',  description: 'Matching visuals across website + social platforms.',                              price: 'R1 500 – R3 000',  salePrice: 'R1 200 – R2 400', features: ['Website hero banner', '3 web section graphics', '3 branded Instagram posts', '5-icon story highlight set'] }, */
+      /* { title: 'Digital Ad Campaign Kit',    description: 'Branding that carries across email + web presence.',                               price: 'R1 000 – R2 000',  salePrice: 'R800 – R1 600',   features: ['5 ad sizes (square, landscape, vertical)', 'Facebook & Instagram ads', 'Email header banner', 'Favicon + branded button set'] }, */
     ],
     slides: [
       { src: '/img/Banner HD-01.png', alt: 'A-Dog-Able Grooming Facebook Banner' },
@@ -137,19 +139,22 @@ export default function Portfolio() {
           </p>
 
           {/* Launch special banner */}
-          <div className="mb-8 rounded-2xl border border-ember/30 dark:bg-ember/8 bg-ember/5
+          <div className="mb-8 rounded-2xl dark:border-ember/30 border-orange-400/50 border
+            dark:bg-ember/8 bg-orange-50
             px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3
             shadow-[0_0_24px_rgba(255,133,71,0.12)]">
             <div className="flex items-center gap-3">
-              <span className="text-ember text-lg">✦</span>
+              <span className="dark:text-ember text-orange-600 text-lg">✦</span>
               <div>
-                <p className="text-[11px] tracking-[0.25em] uppercase text-ember font-semibold">Launch Special</p>
+                <p className="text-[11px] tracking-[0.25em] uppercase dark:text-ember text-orange-700 font-semibold">Launch Special</p>
                 <p className="text-sm dark:text-snow/70 text-ink-soft mt-0.5">20% off all packages — for a limited time only.</p>
               </div>
             </div>
             <a href="#contact"
-              className="flex-shrink-0 px-5 py-2 rounded-xl border border-ember/50 text-ember text-xs font-medium
-                tracking-wide hover:bg-ember hover:text-white transition-all duration-200 hover:shadow-[0_0_18px_rgba(255,133,71,0.4)]">
+              className="flex-shrink-0 px-5 py-2 rounded-xl border dark:border-ember/50 border-orange-500/60
+                dark:text-ember text-orange-700 text-xs font-medium
+                tracking-wide hover:bg-orange-600 hover:text-white dark:hover:bg-ember
+                transition-all duration-200 hover:shadow-[0_0_18px_rgba(255,133,71,0.4)]">
               Claim Discount
             </a>
           </div>

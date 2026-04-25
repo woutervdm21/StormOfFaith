@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from 'react'
 const serviceMap = [
   { label: 'Logo Design',  tab: 'logo'    },
   { label: 'Print Design', tab: 'print'   },
-  { label: 'Digital & Web',tab: 'digital' },
+  { label: 'Web Development', tab: 'digital' },
 ]
 
 export default function Hero() {
@@ -179,7 +179,7 @@ export default function Hero() {
                 dark:bg-abyss/80 bg-pearl/90 backdrop-blur-md
                 border dark:border-white/8 border-neon/20
                 text-[9px] tracking-widest uppercase dark:text-snow/50 text-ink-soft whitespace-nowrap">
-                Digital & Web
+                Web Development
               </div>
 
               {/* Accent dots */}
