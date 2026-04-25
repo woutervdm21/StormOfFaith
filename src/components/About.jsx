@@ -1,52 +1,96 @@
 import { useFadeIn } from '../hooks/useFadeIn'
 
+const stats = [
+  { num: '50+', label: 'Projects'     },
+  { num: '5+',  label: 'Years'        },
+  { num: '3',   label: 'Disciplines'  },
+]
+
 export default function About() {
   const { ref, visible } = useFadeIn()
 
   return (
-    <section id="about" className="bg-cream-dark dark:bg-brand-card py-24 px-6">
+    <section id="about" className="relative py-28 px-6 dark:bg-abyss bg-pearl overflow-hidden">
+
+      {/* Watermark background text */}
+      <div className="absolute top-1/2 -translate-y-1/2 -left-8 font-serif font-light pointer-events-none select-none leading-none"
+        style={{ fontSize: 'clamp(8rem, 20vw, 18rem)', color: 'transparent',
+          WebkitTextStroke: '1px rgba(124,92,252,0.04)' }}>
+        ABOUT
+      </div>
+
       <div
         ref={ref}
-        className={`max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-12 items-center transition-all duration-700 ease-out ${
-          visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-        }`}
+        className={`relative max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center
+          transition-all duration-700 ease-out ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       >
-        {/* Photo */}
-        <div className="md:col-span-2 flex justify-center md:justify-start">
-          <div className="relative w-64 h-72 md:w-72 md:h-80 rounded-3xl overflow-hidden shadow-2xl ring-1 ring-accent/10 dark:ring-accent-muted/10">
+        {/* ─── Photo ─── */}
+        <div className="relative">
+          {/* Corner brackets */}
+          <div className="absolute -top-3 -left-3 w-10 h-10 border-t-2 border-l-2 border-neon/40" />
+          <div className="absolute -bottom-3 -right-3 w-10 h-10 border-b-2 border-r-2 border-neon/40" />
+
+          <div className="relative overflow-hidden rounded-2xl" style={{ aspectRatio: '4/5' }}>
             <img
               src="/img/About Me_Cropped.JPG"
               alt="Candice van der Merwe"
               className="w-full h-full object-cover"
-              style={{ filter: 'contrast(0.95) brightness(1.02)' }}
+              style={{ filter: 'brightness(0.96) contrast(0.98)' }}
             />
-            <div className="absolute inset-0 rounded-3xl shadow-[inset_0_0_30px_rgba(0,0,0,0.15)]" />
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t dark:from-void/55 from-pearl/25 via-transparent to-transparent" />
+            {/* Location tag */}
+            <div className="absolute bottom-5 left-5">
+              <p className="text-[10px] tracking-[0.28em] uppercase text-white/55 font-medium">
+                Middelburg, South Africa
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Bio */}
-        <div className="md:col-span-3 space-y-5">
+        {/* ─── Content ─── */}
+        <div className="space-y-6">
           <div>
-            <p className="text-xs tracking-[0.2em] uppercase text-accent dark:text-accent-soft font-medium mb-2">
+            <p className="text-[10px] tracking-[0.3em] uppercase dark:text-neon/70 text-neon font-medium mb-3">
               About Me
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl font-light text-ink dark:text-white">
+            <h2 className="font-serif font-light dark:text-snow text-ink leading-tight mb-1"
+              style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)' }}>
               Candice van der Merwe
             </h2>
+            <p className="font-serif italic text-xl dark:text-snow/45 text-ink-soft">
+              Graphic & Web Designer
+            </p>
           </div>
-          <p className="text-ink-soft dark:text-slate-300 leading-relaxed text-base">
+
+          <div className="w-10 h-px dark:bg-neon/40 bg-neon/50" />
+
+          <p className="dark:text-snow/60 text-ink-soft leading-relaxed">
             I'm a graphic designer with a passion for creativity and storytelling. As a self-taught designer,
             I believe great design is more than aesthetics — it's about giving people and businesses a voice,
             helping them stand out, and creating identities that truly speak to who they are.
           </p>
-          <p className="text-ink-soft dark:text-slate-300 leading-relaxed text-base">
+          <p className="dark:text-snow/60 text-ink-soft leading-relaxed">
             Every project I take on is personal, with the goal of transforming ideas into visuals that are
             eye-catching, meaningful, and empowering. Let's work together to turn your vision into something unforgettable.
           </p>
-          <div className="flex flex-wrap gap-3 pt-2">
+
+          {/* Stats */}
+          <div className="grid grid-cols-3 gap-3 py-6 border-y dark:border-white/7 border-neon/12">
+            {stats.map(s => (
+              <div key={s.label} className="text-center">
+                <p className="font-serif text-3xl font-light text-gradient-neon mb-0.5">{s.num}</p>
+                <p className="text-[10px] tracking-widest uppercase dark:text-snow/30 text-ink-soft">{s.label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* CTAs */}
+          <div className="flex flex-wrap gap-3 pt-1">
             <a
               href="#portfolio"
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-accent dark:bg-accent-soft text-white dark:text-brand-dark font-medium text-sm hover:bg-accent/90 dark:hover:bg-accent-soft/90 hover:scale-[1.01] transition-all duration-200 shadow-sm"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-neon text-white text-sm font-medium
+                hover:bg-neon/85 hover:shadow-[0_0_24px_rgba(124,92,252,0.45)] hover:scale-[1.02] transition-all duration-200"
             >
               View My Work
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -55,7 +99,12 @@ export default function About() {
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl border border-accent/30 dark:border-accent-soft/30 text-accent dark:text-accent-soft font-medium text-sm hover:bg-accent/5 dark:hover:bg-accent-soft/10 hover:scale-[1.01] transition-all duration-200"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-medium
+                border dark:border-white/12 border-neon/25
+                dark:text-snow/60 text-ink-soft
+                dark:hover:border-neon/50 hover:border-neon/50
+                dark:hover:text-snow hover:text-ink
+                transition-all duration-200"
             >
               Get in Touch
             </a>

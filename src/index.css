@@ -3,67 +3,116 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
-    @apply bg-cream dark:bg-brand-dark text-ink dark:text-slate-100 transition-colors duration-300;
-    font-family: 'Inter', system-ui, sans-serif;
+    background: #07070F;
+    color: #EEEEF8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'kern', 'liga', 'calt';
   }
 
-  h1, h2, h3, h4 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+  :root:not(.dark) body {
+    background: #F6F4FF;
+    color: #0F0E24;
+  }
+
+  section[id] { scroll-margin-top: 72px; }
+
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(124, 92, 252, 0.45);
+    border-radius: 4px;
   }
 }
 
 @layer utilities {
-  .section-pad {
-    @apply py-20 px-6;
+  .text-gradient-neon {
+    background: linear-gradient(135deg, #BEA8FF 0%, #7C5CFC 55%, #4A2ECC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-ember {
+    background: linear-gradient(135deg, #FFD080 0%, #FF8547 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 
-/* Offset anchor scroll targets so they aren't hidden behind the fixed navbar */
-section[id] {
-  scroll-margin-top: 72px;
+/* ─── Film grain texture ─── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+  opacity: 0.032;
+  pointer-events: none;
+  z-index: 9000;
 }
+:root:not(.dark) body::after { opacity: 0.018; }
 
+/* ─── Aurora / blob animations ─── */
+@keyframes aurora-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(8%, -15%) scale(1.12); }
+  66%       { transform: translate(-6%, 10%) scale(0.94); }
+}
+@keyframes aurora-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(-12%, 18%) scale(1.08); }
+}
+@keyframes aurora-c {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40%       { transform: translate(14%, -10%) scale(1.14); }
+  80%       { transform: translate(-9%, 14%) scale(0.92); }
+}
+.aurora-a { animation: aurora-a 16s ease-in-out infinite; }
+.aurora-b { animation: aurora-b 21s ease-in-out infinite; }
+.aurora-c { animation: aurora-c 26s ease-in-out infinite; }
+
+/* ─── Float ─── */
+@keyframes float-up   { 0%,100%{transform:translateY(0) rotate(0deg)}  50%{transform:translateY(-16px) rotate(4deg)} }
+@keyframes float-down { 0%,100%{transform:translateY(0) rotate(0deg)}  50%{transform:translateY(16px) rotate(-4deg)} }
+.float-a { animation: float-up   8s  ease-in-out infinite; }
+.float-b { animation: float-down 11s ease-in-out infinite; }
+.float-c { animation: float-up   13s ease-in-out infinite 1.5s; }
+
+/* ─── Orbit ─── */
+@keyframes orbit-cw  { from{transform:rotate(0deg)}   to{transform:rotate(360deg)}  }
+@keyframes orbit-ccw { from{transform:rotate(0deg)}   to{transform:rotate(-360deg)} }
+.orbit-cw  { animation: orbit-cw  38s linear infinite; }
+.orbit-ccw { animation: orbit-ccw 50s linear infinite; }
+
+/* ─── Marquee ─── */
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.marquee-track { animation: marquee 32s linear infinite; }
+.marquee-track:hover { animation-play-state: paused; }
+
+/* ─── Reveal ─── */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.fade-up {
-  animation: fadeUp 0.7s ease forwards;
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.93); }
+  to   { opacity: 1; transform: scale(1); }
 }
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.tab-content { animation: fadeUp 0.35s ease forwards; }
 
-@keyframes flashIn {
-  from { opacity: 0; filter: blur(6px); }
-  to   { opacity: 1; filter: none; }
+/* ─── Pulse ring ─── */
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0   rgba(124,92,252,0.55); }
+  70%  { box-shadow: 0 0 0 18px rgba(124,92,252,0);   }
+  100% { box-shadow: 0 0 0 0   rgba(124,92,252,0);    }
 }
-.flash-in {
-  animation: flashIn 1s ease forwards;
-}
-
-/* Tab content fade-in on mount/switch */
-.tab-content {
-  animation: fadeUp 0.35s ease forwards;
-}
-
-/* Hero blob animations */
-@keyframes blob1 {
-  0%, 100% { transform: translate(0px,   0px); }
-  33%       { transform: translate(40px, -50px); }
-  66%       { transform: translate(-30px, 30px); }
-}
-@keyframes blob2 {
-  0%, 100% { transform: translate(0px,   0px); }
-  33%       { transform: translate(-40px, 35px); }
-  66%       { transform: translate(30px, -40px); }
-}
-@keyframes blob3 {
-  0%, 100% { transform: translate(0px,  0px); }
-  50%       { transform: translate(25px, 35px); }
-}
-.hero-blob-1 { animation: blob1 10s ease-in-out infinite; }
-.hero-blob-2 { animation: blob2 13s ease-in-out infinite; }
-.hero-blob-3 { animation: blob3 17s ease-in-out infinite; }
+.pulse-ring { animation: pulse-ring 3.5s ease-in-out infinite; }

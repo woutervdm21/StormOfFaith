@@ -1,78 +1,143 @@
 import { useEffect, useState, useRef } from 'react'
 
-const services = [
-  { label: 'Logo Design', tab: 'logo' },
-  { label: 'Print Design', tab: 'print' },
-  { label: 'Digital & Web', tab: 'digital' },
+const serviceMap = [
+  { label: 'Logo Design',  tab: 'logo'    },
+  { label: 'Print Design', tab: 'print'   },
+  { label: 'Digital & Web',tab: 'digital' },
 ]
 
 export default function Hero() {
-  const ref = useRef(null)
   const [visible, setVisible] = useState(false)
+  const [mouse,   setMouse]   = useState({ x: '60%', y: '40%' })
+  const sectionRef = useRef(null)
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setVisible(true))
     return () => cancelAnimationFrame(id)
   }, [])
 
-  return (
-    <section className="relative overflow-hidden bg-[#CEC3FF] dark:bg-[#07071A]">
+  const handleMouseMove = e => {
+    if (!sectionRef.current) return
+    const r = sectionRef.current.getBoundingClientRect()
+    setMouse({ x: `${e.clientX - r.left}px`, y: `${e.clientY - r.top}px` })
+  }
 
-      {/* ── Animated colour blobs ── */}
+  return (
+    <section
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+      className="relative min-h-screen overflow-hidden dark:bg-void bg-pearl flex items-center"
+    >
+      {/* Cursor spotlight */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: `radial-gradient(700px circle at ${mouse.x} ${mouse.y}, rgba(124,92,252,0.07), transparent 42%)` }}
+      />
+
+      {/* Aurora blobs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="hero-blob-1 absolute -top-28 -right-20 w-[520px] h-[520px] rounded-full bg-violet-500/55 dark:bg-violet-600/30 blur-[100px]" />
-        <div className="hero-blob-2 absolute -bottom-36 -left-20 w-[460px] h-[460px] rounded-full bg-indigo-500/50 dark:bg-indigo-500/25 blur-[90px]" />
-        <div className="hero-blob-3 absolute top-1/2 left-[38%] w-[320px] h-[320px] rounded-full bg-purple-500/45 dark:bg-purple-500/20 blur-[70px]" />
+        <div className="aurora-a absolute -top-[20%] -right-[10%] w-[680px] h-[680px] rounded-full dark:bg-violet-600/22 bg-violet-400/18 blur-[110px]" />
+        <div className="aurora-b absolute -bottom-[25%] -left-[10%] w-[580px] h-[580px] rounded-full dark:bg-indigo-700/18 bg-indigo-400/12 blur-[100px]" />
+        <div className="aurora-c absolute top-[35%] left-[28%]  w-[380px] h-[380px] rounded-full dark:bg-violet-500/12 bg-violet-300/12 blur-[80px]" />
       </div>
 
-      {/* ── Dot-grid texture ── */}
+      {/* Dot grid */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: 'radial-gradient(var(--dot-color) 1px, transparent 1px)',
-          backgroundSize: '28px 28px',
+          backgroundImage: 'radial-gradient(rgba(124,92,252,0.18) 1px, transparent 1px)',
+          backgroundSize: '32px 32px',
         }}
       />
-      {/* CSS variable for dot colour per theme */}
-      <style>{`
-        :root          { --dot-color: rgba(60, 40, 160, 0.18); }
-        .dark          { --dot-color: rgba(255, 255, 255, 0.08); }
-      `}</style>
 
-      {/* ── Decorative concentric rings ── */}
-      <div className="absolute pointer-events-none right-[-240px] top-1/2 -translate-y-1/2">
-        <div className="w-[700px] h-[700px] rounded-full border border-accent/[0.25] dark:border-white/[0.04]" />
-        <div className="absolute inset-[80px] rounded-full border border-accent/[0.20] dark:border-white/[0.04]" />
-        <div className="absolute inset-[160px] rounded-full border border-accent/[0.25] dark:border-white/[0.05]" />
+      {/* Vertical rule decorations */}
+      <div className="absolute inset-0 pointer-events-none hidden lg:block">
+        <div className="absolute top-0 bottom-0 w-px dark:bg-white/[0.04] bg-neon/8" style={{ left: '68%' }} />
+        <div className="absolute top-0 bottom-0 w-px dark:bg-white/[0.03] bg-neon/5" style={{ left: '84%' }} />
       </div>
 
-      {/* ── Content ── */}
-      <div
-        ref={ref}
-        className={`relative max-w-5xl mx-auto px-6 pt-28 pb-20 md:pt-36 md:pb-28 transition-all duration-700 ease-out ${
-          visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-        }`}
-      >
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1px_1.7fr] gap-10 md:gap-14 items-center">
+      {/* Main content */}
+      <div className="relative max-w-7xl mx-auto px-6 w-full pt-24 pb-16 md:pt-36 md:pb-28">
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-20 items-center">
 
-          {/* Logo */}
-          <div className="flex flex-col items-center md:items-start gap-6">
-            <div className="relative">
-              <div className="absolute -inset-2 rounded-[22px] border border-accent/20 dark:border-accent-muted/25" />
-              <div className="absolute -inset-4 rounded-[26px] border border-accent/10 dark:border-accent-muted/10" />
-              <img
-                src="/img/Storm Of Faith Logo HD-01.png"
-                alt="Storm of Faith"
-                className="relative w-36 h-36 md:w-44 md:h-44 rounded-2xl object-cover shadow-xl"
-              />
+          {/* ─── Left: Typography ─── */}
+          <div style={{ animation: visible ? 'fadeUp 0.9s ease forwards' : 'none', opacity: 0 }}>
+
+            {/* Eyebrow */}
+            <div className="flex items-center gap-3 mb-8">
+              <span className="w-8 h-px dark:bg-neon bg-neon/50" />
+              <p className="text-[10px] tracking-[0.35em] uppercase dark:text-snow/35 text-ink-soft font-medium">
+                Graphic · Web · Brand Design
+              </p>
             </div>
-            <div className="flex flex-wrap justify-center md:justify-start gap-2">
-              {services.map(s => (
+
+            {/* Giant display type */}
+            <h1 className="font-serif font-light leading-none mb-3 select-none">
+              <span
+                className="block dark:text-snow text-ink"
+                style={{ fontSize: 'clamp(4.5rem, 13vw, 10.5rem)', lineHeight: '0.92', letterSpacing: '-0.02em' }}
+              >
+                STORM
+              </span>
+              <span
+                className="block italic text-gradient-neon ml-3 md:ml-8"
+                style={{ fontSize: 'clamp(2.8rem, 7.5vw, 6rem)', lineHeight: '1.1' }}
+              >
+                of Faith
+              </span>
+            </h1>
+
+            {/* Divider */}
+            <div className="flex items-center gap-3 mt-6 mb-7">
+              <div className="w-10 h-px dark:bg-neon/60 bg-neon/50" />
+              <div className="w-1.5 h-1.5 rounded-full bg-neon" />
+              <div className="w-20 h-px dark:bg-white/10 bg-neon/20" />
+            </div>
+
+            {/* Tagline */}
+            <p className="text-base md:text-lg dark:text-snow/60 text-ink-soft leading-relaxed max-w-[420px] mb-10">
+              Celebrating Faith through Unique Design Expressions — where creativity meets purpose.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-4 mb-10">
+              <a
+                href="#portfolio"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-neon text-white font-medium text-sm
+                  hover:bg-neon/85 hover:shadow-[0_0_36px_rgba(124,92,252,0.55)] hover:scale-[1.03]
+                  transition-all duration-300"
+              >
+                View My Work
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-sm font-medium
+                  dark:border dark:border-white/12 border border-neon/25
+                  dark:text-snow/60 text-ink-soft
+                  dark:hover:border-neon/55 hover:border-neon/55
+                  dark:hover:text-snow hover:text-ink
+                  hover:scale-[1.03] transition-all duration-300"
+              >
+                Get in Touch
+              </a>
+            </div>
+
+            {/* Service tags */}
+            <div className="flex flex-wrap gap-2">
+              {serviceMap.map(s => (
                 <a
-                  key={s.label}
+                  key={s.tab}
                   href="#portfolio"
                   onClick={() => sessionStorage.setItem('portfolioTab', s.tab)}
-                  className="text-[10px] tracking-widest uppercase px-3 py-1 rounded-full border border-[#3D2DB5]/40 dark:border-accent-muted/25 text-[#3D2DB5] dark:text-accent-muted/70 hover:border-[#3D2DB5]/70 dark:hover:border-accent-muted/50 hover:text-accent dark:hover:text-accent-soft transition-colors duration-200"
+                  className="px-3 py-1.5 rounded-lg text-[10px] tracking-widest uppercase
+                    dark:border dark:border-white/8 border border-neon/18
+                    dark:text-snow/35 text-ink-soft
+                    dark:hover:border-neon/45 hover:border-neon/50
+                    dark:hover:text-neon-light hover:text-neon
+                    transition-all duration-200 cursor-pointer"
                 >
                   {s.label}
                 </a>
@@ -80,34 +145,81 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Divider */}
-          <div className="hidden md:block h-48 bg-gradient-to-b from-transparent via-accent/15 dark:via-white/10 to-transparent" />
+          {/* ─── Right: Logo orbit ─── */}
+          <div
+            className="hidden lg:flex items-center justify-center"
+            style={{ animation: visible ? 'scaleUp 1s ease 0.35s forwards' : 'none', opacity: 0 }}
+          >
+            <div className="relative w-64 h-64 xl:w-72 xl:h-72">
+              {/* Orbit rings */}
+              <div className="orbit-ccw absolute inset-[-52px] rounded-full border dark:border-white/5 border-neon/12" />
+              <div className="absolute inset-[-26px] rounded-full border dark:border-neon/18 border-neon/25" />
+              <div className="absolute inset-[-6px] rounded-full border dark:border-neon/35 border-neon/45" />
 
-          {/* Text */}
-          <div className="text-center md:text-left space-y-6">
-            <p className="text-[11px] tracking-[0.3em] uppercase text-[#3D2DB5] dark:text-accent-muted/60 font-medium">
-              Graphic & Web Design · Middelburg, SA
-            </p>
+              {/* Logo in glow circle */}
+              <div className="w-full h-full rounded-2xl overflow-hidden pulse-ring shadow-[0_0_60px_rgba(124,92,252,0.35)]">
+                <img src="/img/Storm Of Faith Logo HD-01.png" alt="Storm of Faith" className="w-full h-full object-cover" />
+              </div>
 
-            <h1 className="font-serif font-light leading-[1.05] text-[#1A0A4A] dark:text-white">
-              <span className="block text-5xl md:text-6xl lg:text-[4.5rem]">Storm</span>
-              <span className="block text-5xl md:text-6xl lg:text-[4.5rem] italic text-[#3D2DB5] dark:text-accent-soft">
-                of Faith
-              </span>
-            </h1>
+              {/* Floating service pills */}
+              <div className="float-a absolute -top-7 -right-2 px-3 py-1.5 rounded-lg
+                dark:bg-abyss/80 bg-pearl/90 backdrop-blur-md
+                border dark:border-white/8 border-neon/20
+                text-[9px] tracking-widest uppercase dark:text-neon-light text-neon whitespace-nowrap">
+                Logo Design
+              </div>
+              <div className="float-b absolute -bottom-5 -left-10 px-3 py-1.5 rounded-lg
+                dark:bg-abyss/80 bg-pearl/90 backdrop-blur-md
+                border dark:border-white/8 border-neon/20
+                text-[9px] tracking-widest uppercase dark:text-snow/50 text-ink-soft whitespace-nowrap">
+                Print Design
+              </div>
+              <div className="float-c absolute top-1/2 -right-14 -translate-y-1/2 px-3 py-1.5 rounded-lg
+                dark:bg-abyss/80 bg-pearl/90 backdrop-blur-md
+                border dark:border-white/8 border-neon/20
+                text-[9px] tracking-widest uppercase dark:text-snow/50 text-ink-soft whitespace-nowrap">
+                Digital & Web
+              </div>
 
-            <p className="text-base text-[#2D1E6B] dark:text-white/55 leading-relaxed max-w-md mx-auto md:mx-0">
-              Celebrating Faith through Unique Design Expressions
-            </p>
-
-            <div className="w-10 h-px bg-[#3D2DB5]/50 dark:bg-accent-soft/40 mx-auto md:mx-0" />
-
-            <blockquote className="text-sm italic text-[#2D1E6B]/70 dark:text-white/35 leading-relaxed max-w-sm mx-auto md:mx-0">
-              "Trust in the Lord with all your Heart and lean not on your own Understanding" — Prov 3:5
-            </blockquote>
+              {/* Accent dots */}
+              <div className="absolute -top-1 -left-10 w-2 h-2 rounded-full bg-neon/50" />
+              <div className="absolute bottom-6 -right-8 w-1.5 h-1.5 rounded-full dark:bg-white/25 bg-neon/30" />
+              <div className="absolute -bottom-12 right-6 w-1 h-1 rounded-full bg-neon/70" />
+            </div>
           </div>
-
         </div>
+
+        {/* ─── Stats bar ─── */}
+        <div
+          className="mt-16 md:mt-20 pt-8 border-t dark:border-white/6 border-neon/12
+            flex flex-wrap gap-8 md:gap-16 items-end"
+          style={{ animation: visible ? 'fadeUp 0.9s ease 0.6s forwards' : 'none', opacity: 0 }}
+        >
+          {[
+            { num: '50+', label: 'Projects Completed' },
+            { num: '5+',  label: 'Years Experience'   },
+            { num: '3',   label: 'Design Disciplines'  },
+          ].map(s => (
+            <div key={s.label}>
+              <p className="font-serif text-3xl font-light text-gradient-neon mb-0.5">{s.num}</p>
+              <p className="text-[10px] tracking-widest uppercase dark:text-snow/30 text-ink-soft">{s.label}</p>
+            </div>
+          ))}
+          <div className="ml-auto hidden md:block">
+            <p className="text-xs italic dark:text-snow/25 text-ink-soft/60">
+              "Trust in the Lord with all your heart…" — Prov 3:5
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll cue */}
+      <div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        style={{ animation: visible ? 'fadeUp 1s ease 1.1s forwards' : 'none', opacity: 0 }}
+      >
+        <p className="text-[9px] tracking-[0.35em] uppercase dark:text-snow/25 text-ink-soft/50">Scroll</p>
+        <div className="w-px h-12 bg-gradient-to-b dark:from-snow/25 dark:to-transparent from-neon/35 to-transparent" />
       </div>
     </section>
   )

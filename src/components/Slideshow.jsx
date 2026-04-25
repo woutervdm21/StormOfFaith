@@ -12,7 +12,7 @@ export default function Slideshow({ images }) {
   }, [next])
 
   return (
-    <div className="relative w-full h-[480px] rounded-2xl overflow-hidden bg-slate-100 dark:bg-brand-card shadow-xl">
+    <div className="relative w-full h-[480px] rounded-2xl overflow-hidden dark:bg-layer bg-pearl-mid border dark:border-white/[0.05] border-neon/10 shadow-xl">
       {images.map((img, i) => (
         <img
           key={img.src}
