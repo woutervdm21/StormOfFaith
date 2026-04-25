@@ -1,4 +1,4 @@
-export default function PricingCard({ title, description, price, salePrice, features, featured = false }) {
+export default function PricingCard({ title, description, price, salePrice, features, devNote, featured = false }) {
   return (
     <div className={`relative flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 ${
       featured
@@ -37,6 +37,16 @@ export default function PricingCard({ title, description, price, salePrice, feat
           </li>
         ))}
       </ul>
+
+      {devNote && (
+        <div className="flex items-start gap-2 mb-4 px-3 py-2 rounded-lg
+          dark:bg-neon/[0.07] bg-neon/5 border dark:border-neon/15 border-neon/20">
+          <svg className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 dark:text-neon-light text-neon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          </svg>
+          <p className="text-[10px] leading-relaxed dark:text-neon-light/70 text-neon/80">{devNote}</p>
+        </div>
+      )}
 
       <p className="text-[10px] italic dark:text-snow/25 text-ink-soft/50 mb-4">
         Price dependent on design complexity

@@ -42,7 +42,7 @@ const pillars = [
       </svg>
     ),
     title: 'Web Development',
-    desc: 'Fully built, mobile-responsive websites — from design to deployment. Custom branding, hosting, and light/dark mode included.',
+    desc: 'Fully built websites and web applications — designed by Candice, coded by a professional software developer with 10+ years of experience.',
   },
 ]
 

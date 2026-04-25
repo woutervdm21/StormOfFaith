@@ -55,7 +55,7 @@ const categories = [
     plans: [
       { title: 'Website Design Assets',  description: 'Professional web graphics for businesses that already have a developer.',                  price: 'R650 – R1 200',    salePrice: 'R520 – R960',     features: ['Hero banner', 'CTA button graphic', 'Profile & cover banners', 'Instagram story highlights', 'All web-ready file formats'] },
       { title: 'Website Build',          description: 'A fully designed, responsive website — custom built from the ground up.',                  price: 'R3 000 – R6 000',  salePrice: 'R2 400 – R4 800', features: ['1–6 pages', 'Custom design & branding', 'Mobile + tablet responsive', 'Contact form', 'Hosting & domain setup', 'Light / dark mode'] },
-      { title: 'Web Application',        description: 'Custom web systems built around your business workflows and customer needs.',               price: 'R8 000 – R25 000+', salePrice: 'R6 400 – R20 000+', features: ['E-commerce store', 'Calendar & booking systems', 'Customer login portals', 'Admin dashboards', 'API & third-party integrations', 'Database-driven content'] },
+      { title: 'Web Application',        description: 'Custom web systems built around your business workflows and customer needs.',               price: 'R8 000 – R25 000+', salePrice: 'R6 400 – R20 000+', features: ['E-commerce store', 'Calendar & booking systems', 'Customer login portals', 'Admin dashboards', 'API & third-party integrations', 'Database-driven content'], devNote: 'Coded by a professional software developer with 10+ years of experience.' },
       /* { title: 'Website Graphic Set',       description: 'For businesses needing simple, clean visuals for their site.',                       price: 'R650 – R1 200',    salePrice: 'R520 – R960',     features: ['Hero banner', 'CTA button graphic', 'Footer / sidebar visual', 'Profile + cover banner', 'Instagram stories & highlights'] }, */
       /* { title: 'Full Website Graphics Pack', description: 'For a full site launch or complete visual refresh.',                                price: 'R1 500 – R3 500',  salePrice: 'R1 200 – R2 800', features: ['Desktop + mobile hero banner', '3 section graphics', '3 custom icons or badges', 'All files for web + mobile'] }, */
       /* { title: 'Social + Web Launch Combo',  description: 'Matching visuals across website + social platforms.',                              price: 'R1 500 – R3 000',  salePrice: 'R1 200 – R2 400', features: ['Website hero banner', '3 web section graphics', '3 branded Instagram posts', '5-icon story highlight set'] }, */
@@ -148,9 +148,9 @@ export default function Portfolio() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
                 <p className="text-xs dark:text-snow/55 text-ink-soft">
-                  All web development is delivered by{' '}
-                  <span className="dark:text-snow text-ink font-medium">my husband</span>
-                  {' '}— a professional software developer with{' '}
+                  All web development is delivered by a{' '}
+                  <span className="dark:text-snow text-ink font-medium">professional software developer</span>
+                  {' '}with{' '}
                   <span className="dark:text-neon-light text-neon font-medium">10+ years of experience</span>.
                 </p>
               </div>
