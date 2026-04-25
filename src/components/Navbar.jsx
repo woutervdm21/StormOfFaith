@@ -77,7 +77,12 @@ export default function Navbar() {
           <button
             onClick={toggle}
             aria-label="Toggle theme"
-            className="p-2 rounded-lg dark:text-snow/40 text-ink-soft dark:hover:text-snow hover:text-ink dark:hover:bg-white/5 hover:bg-neon/8 transition-all duration-200"
+            className="p-1.5 rounded-lg border dark:border-white/15 border-neon/25
+              dark:text-snow/70 text-ink-soft
+              dark:hover:border-neon/50 hover:border-neon/50
+              dark:hover:text-snow hover:text-ink
+              dark:hover:bg-white/5 hover:bg-neon/8
+              transition-all duration-200"
           >
             {dark ? <SunIcon /> : <MoonIcon />}
           </button>
@@ -85,7 +90,13 @@ export default function Navbar() {
 
         {/* Mobile controls */}
         <div className="flex md:hidden items-center gap-1">
-          <button onClick={toggle} className="p-2 dark:text-snow/40 text-ink-soft">{dark ? <SunIcon /> : <MoonIcon />}</button>
+          <button onClick={toggle} aria-label="Toggle theme"
+            className="p-1.5 rounded-lg border dark:border-white/15 border-neon/25
+              dark:text-snow/70 text-ink-soft
+              dark:hover:text-snow hover:text-ink
+              transition-all duration-200">
+            {dark ? <SunIcon /> : <MoonIcon />}
+          </button>
           <button onClick={() => setMenuOpen(o => !o)} aria-label="Menu" className="p-2 dark:text-snow/40 text-ink-soft">
             <div className="w-5 flex flex-col gap-[5px] items-end">
               <span className={`block h-px bg-current transition-all duration-300 ${menuOpen ? 'w-5 rotate-45 translate-y-[9px]' : 'w-5'}`} />
