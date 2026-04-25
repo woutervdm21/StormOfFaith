@@ -1,328 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
-<head>
-  <!-- Meta -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Storm Of Faith</title>
-  <link rel="icon" type="image/x-icon" href="img/Icons-01.png" />
-
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.clouds.min.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="_framework/blazor.webassembly.js"></script>
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body class="dark:bg-slate-900 dark:text-white relative overflow-x-hidden theme-transition">
-
-  <!-- Theme toggle -->
-  <div class="fixed top-4 right-4 z-50 text-center">
-    <button
-      id="theme-toggle"
-      aria-label="Toggle dark/light theme"
-      onclick="toggleTheme()"
-      class="bg-slate-700 text-slate-300 dark:bg-amber-100 dark:text-black p-3 rounded-full shadow-lg hover:bg-slate-600 dark:hover:bg-amber-200 transition-colors duration-600 hover:scale-105 items-center justify-center">
-      <!-- Moon icon (for light mode) -->
-      <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-      </svg>
-      <!-- Sun icon (for dark mode) -->
-      <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-      </svg>
-    </button>
-  </div>
-
-  <!-- Hero -->
-  <section id="hero-section"
-    class="dark:from-slate-700 dark:to-slate-900 text-slate-900 dark:text-white relative h-screen flex items-center justify-center flash-in theme-transition overflow-hidden">
-    <div class="max-w-6xl w-full px-6 z-10">
-      <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
-        
-        <!-- Headline -->
-        <div class="backdrop-blur-lg bg-white/60 dark:bg-white/20 shadow-xl dark:shadow-violet-800/30 shadow-sky-300/30 rounded-3xl p-10 w-full max-w-4xl mx-auto">
-          <div class="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">            
-            <!-- Text Content (Left Side) -->
-            <div class="flex-1 text-left">
-              <h1 class="text-6xl sm:text-6xl md:text-6xl text-sky-400 dark:text-violet-800 dark:[text-shadow:0_0_10px_white,0_0_20px_white] text-center leading-tight">
-                <span class="font-bold">Storm</span> of Faith
-              </h1>
-                 <p class="mt-4 text-base sm:text-lg md:text-xl text-slate-800 dark:text-white font-bold">
-                Celebrating Faith through Unique Design Expressions
-                </p>
-              <p class="mt-4 text-base sm:text-lg md:text-xl text-sky-400 dark:text-violet-800 dark:[text-shadow:0_0_10px_white,0_0_20px_white] text-center">
-                "Trust in the Lord with all your Heart and lean not on your own Understanding" Prov 3:5
-              </p>
-            </div>
-            
-            
-            <!-- Separator Line -->
-            <div class="hidden md:block border-r border-sky-400 dark:border-violet-800 h-48 mx-4"></div>            
-            <!-- Logo (Right Side) -->
-            <div class="flex-shrink-0">
-              <img src="img/Storm Of Faith Logo HD-01.png" alt="Storm of Faith Logo"
-                class="w-32 md:w-36 lg:w-40 hover:scale-105 hover:opacity-100 dark:hover:opacity-90 transition-all duration-300 ring-2 dark:ring-violet-800/40 ring-sky-400/40 rounded-2xl" />
-            </div>
-            
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about-section" class="bg-gradient-to-br from-stone-50 via-sky-200 to-stone-50 dark:from-indigo-400 dark:via-indigo-500 dark:to-indigo-900 text-blue-950 dark:text-white py-5 theme-transition">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 items-center p-6">
-      <!-- Picture -->
-      <figure class="fade-in opacity-0 translate-y-8 transition md:col-span-1 flex justify-center">
-        <div class="w-64 h-64 md:w-72 md:h-72 rounded-xl overflow-hidden shadow-lg border-4 border-cyan-200 dark:border-slate-800">
-          <img src="img/About Me_Cropped.JPG" alt="Candice van der Merwe" class="w-full h-full" />
-        </div>
-      </figure>
-
-      <!-- Bio -->
-      <div class="md:col-span-2">
-        <h2 class="fade-in opacity-0 translate-y-8 transition duration-700 text-3xl font-bold mb-4 text-slate-800 dark:text-white">About Me</h2>
-        <p class="fade-in opacity-0 translate-y-8 transition duration-700 mb-4 text-slate-800 dark:text-white">
-          I’m Candice, a graphic designer with a passion for creativity and storytelling.
-           As a self-taught designer, I believe great design is more than aesthetics—it’s about giving people and businesses
-            a voice, helping them stand out, and creating identities that truly speak to who they are.
-            Every project I take on is personal, with the goal of transforming ideas into visuals that are eye-catching,
-             meaningful, and empowering. Let’s work together to turn your vision into something unforgettable.
-        </p>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfolio -->
-  <section class="fade-in opacity-0 translate-y-8 transition duration-700 bg-sky-300 dark:bg-indigo-950 text-blue-950 dark:text-white relative py-10 theme-transition">
-    <h2 class="text-3xl font-bold text-center mb-6 text-slate-800 dark:text-white">Design Portfolio</h2>
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        
-        <!-- Portfolio Item 1 -->
-        <div class="group bg-white dark:bg-slate-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
-          <a href="project1.html" target="_blank" class="block">
-            <div class="relative h-48 bg-gradient-to-br from-cyan-400 to-teal-600">
-              <div class="absolute inset-0 flex items-center justify-center">
-          <span class="text-2xl font-bold text-white">Logo Design</span>
-              </div>
-              <div class="absolute bottom-4 left-0 right-0 text-center">
-          <button class="bg-white text-slate-800 px-6 py-2 rounded-full font-semibold hover:bg-sky-100 transition">
-            View Pricing & Portfolio
-          </button>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-semibold text-slate-800 dark:text-white mb-2">Signature Logos</h3>
-              <p class="text-slate-600 dark:text-slate-300">"Designing your visual voice"</p>
-            </div>
-          </a>
-        </div>
-
-        <!-- Portfolio Item 2 -->
-        <div class="group bg-white dark:bg-slate-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
-          <a href="project2.html" target="_blank" class="block">
-            <div class="relative h-48 bg-gradient-to-br from-sky-400 to-blue-600">
-              <div class="absolute inset-0 flex items-center justify-center">
-          <span class="text-2xl font-bold text-white">Print Design</span>
-              </div>
-              <div class="absolute bottom-4 left-0 right-0 text-center">
-          <button class="bg-white text-slate-800 px-6 py-2 rounded-full font-semibold hover:bg-sky-100 transition">
-            View Pricing & Portfolio
-          </button>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-semibold text-slate-800 dark:text-white mb-2">Print Design</h3>
-              <p class="text-slate-600 dark:text-slate-300">"Clean, cohesive, and crafted with care"</p>
-            </div>
-          </a>
-        </div>
-
-        <!-- Portfolio Item 3 -->
-        <div class="group bg-white dark:bg-slate-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
-          <a href="project3.html" target="_blank" class="block">
-            <div class="relative h-48 bg-gradient-to-br from-blue-400 to-violet-600">
-              <div class="absolute inset-0 flex items-center justify-center">
-          <span class="text-2xl font-bold text-white">Digital Design</span>
-              </div>
-              <div class="absolute bottom-4 left-0 right-0 text-center">
-          <button class="bg-white text-slate-800 px-6 py-2 rounded-full font-semibold hover:bg-sky-100 transition">
-            View Pricing & Portfolio
-          </button>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-semibold text-slate-800 dark:text-white mb-2">Web Graphics & Digital Assets</h3>
-              <p class="text-slate-600 dark:text-slate-300">"From websites to web banners — every pixel with purpose"</p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="fade-in opacity-0 translate-y-8 transition duration-700 bg-gradient-to-br from-stone-50 via-sky-200 to-stone-50 dark:from-indigo-400 dark:via-indigo-500 dark:to-indigo-900 text-blue-950 dark:text-white py-20 theme-transition">
-    <div class="fade-in max-w-6xl mx-auto px-6">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-blue-950 dark:text-indigo-900">Get In Touch</h2>
-        <p class="text-blue-950 dark:text-indigo-900 text-lg max-w-2xl mx-auto">Ready to bring your design vision to life? Let's discuss your project and create something amazing together.</p>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-        
-        <!-- Contact Information -->
-        <div class="space-y-8">
-          <div class="bg-white dark:bg-slate-700 rounded-lg p-6 shadow-lg">
-            <h3 class="text-2xl font-bold mb-6 text-cyan-500 dark:text-indigo-400">Contact Details</h3>
-            
-            <div class="space-y-4">
-              <!-- Email -->
-              <div class="flex items-center space-x-4">
-                <div class="bg-cyan-300 dark:bg-indigo-600 p-3 rounded-full">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                  </svg>
-                </div>
-                <div>
-                  <p class="text-slate-500 dark:text-slate-300 text-sm">Email</p>
-                  <a href="mailto:stormyvisions@yahoo.com" class="text-slate-800 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 transition-colors">stormyvisions@yahoo.com</a>
-                </div>
-              </div>
-
-              <!-- Phone -->
-              <div class="flex items-center space-x-4">
-                <div class="bg-cyan-300 dark:bg-indigo-600 p-3 rounded-full">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                  </svg>
-                </div>
-                <div>
-                  <p class="text-slate-500 dark:text-slate-300 text-sm">Phone</p>
-                  <a href="tel:+27 79 649 9728" class="text-slate-800 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 transition-colors">+27 79 649 9728</a>
-                </div>
-              </div>
-
-              <!-- Location -->
-              <div class="flex items-center space-x-4">
-                <div class="bg-cyan-300 dark:bg-indigo-600 p-3 rounded-full">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  </svg>
-                </div>
-                <div>
-                  <p class="text-slate-500 dark:text-slate-300 text-sm">Location</p>
-                  <p class="text-slate-800 dark:text-white">Middelburg, South Africa</p>
-                </div>
-              </div>
-
-              <!-- Business Hours -->
-              <div class="flex items-center space-x-4">
-                <div class="bg-cyan-300 dark:bg-indigo-600 p-3 rounded-full">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                </div>
-                <div>
-                  <p class="text-slate-500 dark:text-slate-300 text-sm">Business Hours</p>
-                  <p class="text-slate-800 dark:text-white">Mon - Fri: 8AM - 4PM</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Social Links -->
-          <div class="bg-white dark:bg-slate-700 rounded-lg p-6 shadow-lg">
-            <h4 class="text-xl font-bold mb-4 text-cyan-500 dark:text-indigo-400">Follow Me</h4>
-            <div class="flex space-x-4">
-              <a href="https://www.instagram.com/stormoffaith3_16" target="_blank" class="bg-cyan-300 dark:bg-indigo-600 p-3 rounded-full transition-colors">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm8.75 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/>
-                </svg>
-              </a>
-              <a href="https://web.facebook.com/profile.php?id=61575638911067" target="_blank" class="bg-cyan-300 dark:bg-indigo-600 p-3 rounded-full transition-colors">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.5V12H17l-.5 3h-2.8v7A10 10 0 0 0 22 12z"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Contact Form -->
-        <div class="bg-white dark:bg-slate-700 rounded-lg p-8 shadow-lg">
-          <h3 class="text-2xl font-bold mb-6 text-cyan-500 dark:text-indigo-400">Send a Message</h3>
-          
-          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" class="space-y-6">
-            <input type="hidden" name="form-name" value="contact">
-            <input type="hidden" name="subject" value="New message from %{formName} on Storm Of Faith">
-            <p style="display:none">
-              <label>Don't fill this: <input name="bot-field"></label>
-            </p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label for="firstName" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">First Name</label>
-                <input type="text" id="firstName" name="firstName"
-                  class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-600 border border-slate-300 dark:border-slate-500 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-400"
-                  placeholder="John">
-              </div>
-              <div>
-                <label for="lastName" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Last Name</label>
-                <input type="text" id="lastName" name="lastName"
-                  class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-600 border border-slate-300 dark:border-slate-500 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-400"
-                  placeholder="Doe">
-              </div>
-            </div>
-
-            <div>
-              <label for="phone number" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Phone Number</label>
-              <input type="phone number" id="email" name="phone number"
-                class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-600 border border-slate-300 dark:border-slate-500 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-400"
-                placeholder=" I will call you to chat about your enquiry">
-            </div>
-
-            <div>
-              <label for="subject" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Subject</label>
-              <input type="text" id="subject" name="subject"
-                class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-600 border border-slate-300 dark:border-slate-500 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-400"
-                placeholder="Design Inquiry">
-            </div>
-
-            <div>
-              <label for="message" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Message</label>
-              <textarea id="message" name="message" rows="5"
-                class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-600 border border-slate-300 dark:border-slate-500 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-400 resize-vertical"
-                placeholder="Tell me about your design..."></textarea>
-            </div>
-
-            <button type="submit"
-              class="w-full bg-cyan-300 dark:bg-indigo-400 text-black font-semibold py-3 px-6 rounded-lg transition-colors duration-300 hover:scale-105 transform">
-              Send Message
-            </button>
-          </form>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <div class="w-full border-t-2 border-sky-600 dark:border-sky-800"></div>
-
-  <footer class="fade-in opacity-0 translate-y-8 transition duration-700 bg-sky-300 dark:bg-indigo-950 text-blue-950 dark:text-white text-center py-6">
-    <p>&copy; <span id="year"></span> Storm Of Faith. John 3:16 "For God so loved the world..."</p>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-    <script src="script.js"></script>
-  </footer>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Apply theme before first paint to prevent flash -->
+    <script>
+      if (localStorage.getItem('theme') === 'light') {
+        document.documentElement.classList.remove('dark')
+      } else {
+        document.documentElement.classList.add('dark')
+      }
+    </script>
+    <link rel="icon" type="image/png" href="/img/Icons-01.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Storm Of Faith — Graphic & Web Design</title>
+    <meta name="description" content="Storm Of Faith — graphic and web design studio based in Middelburg, South Africa. Specialising in logo design, print design, and digital assets. Handcrafted with faith and purpose." />
+    <meta name="keywords" content="graphic design, logo design, print design, web design, Middelburg, South Africa" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Storm Of Faith — Graphic & Web Design" />
+    <meta property="og:description" content="Custom logos, print, and digital design — handcrafted with faith and purpose in Middelburg, South Africa." />
+    <meta property="og:image" content="/img/Storm Of Faith Logo HD-01.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Storm Of Faith — Graphic & Web Design" />
+    <meta name="twitter:description" content="Custom logos, print, and digital design — handcrafted with faith and purpose." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <!-- Netlify form detection for SPA -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="firstName" />
+      <input type="text" name="lastName" />
+      <input type="tel" name="phone" />
+      <input type="text" name="subject" />
+      <textarea name="message"></textarea>
+    </form>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
-
