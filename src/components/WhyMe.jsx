@@ -86,7 +86,7 @@ export default function WhyMe() {
                 {p.num}
               </span>
 
-              <span className="block text-[10px] tracking-[0.28em] uppercase dark:text-neon/65 text-neon/85 font-medium mb-4">
+              <span className="block text-xs tracking-[0.28em] uppercase dark:text-neon/80 text-neon font-semibold mb-4">
                 {p.num}
               </span>
 
