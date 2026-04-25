@@ -42,7 +42,7 @@ const pillars = [
       </svg>
     ),
     title: 'Web Development',
-    desc: 'Fully built websites and web applications — designed by Candice, coded by a professional software developer with 10+ years of experience.',
+    desc: 'My husband Wouter brings 10+ years of software development experience — together we cover every inch of your project, from design to deployment.',
   },
 ]
 

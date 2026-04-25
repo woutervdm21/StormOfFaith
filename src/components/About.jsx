@@ -61,6 +61,9 @@ export default function About() {
             <p className="font-serif italic text-xl dark:text-snow/45 text-ink-soft">
               Graphic & Web Designer
             </p>
+            <p className="text-xs dark:text-snow/30 text-ink-soft/60 tracking-wide mt-2">
+              A husband-and-wife creative studio — design by Candice, development by Wouter
+            </p>
           </div>
 
           <div className="w-10 h-px dark:bg-neon/40 bg-neon/50" />
