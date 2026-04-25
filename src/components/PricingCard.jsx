@@ -1,4 +1,4 @@
-export default function PricingCard({ title, description, price, features, featured = false }) {
+export default function PricingCard({ title, description, price, salePrice, features, featured = false }) {
   return (
     <div className={`relative flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 ${
       featured
@@ -19,8 +19,11 @@ export default function PricingCard({ title, description, price, features, featu
       <h3 className="font-serif text-xl dark:text-snow text-ink mb-1">{title}</h3>
       <p className="text-xs leading-relaxed dark:text-snow/45 text-ink-soft mb-4">{description}</p>
 
-      <div className={`font-serif text-2xl font-light mb-5 ${featured ? 'text-gradient-neon' : 'dark:text-snow/80 text-ink'}`}>
-        {price}
+      <div className="mb-5">
+        <span className="text-xs dark:text-snow/30 text-ink-soft/50 line-through">{price}</span>
+        <div className={`font-serif text-2xl font-light mt-0.5 ${featured ? 'text-gradient-neon' : 'dark:text-snow/80 text-ink'}`}>
+          {salePrice}
+        </div>
       </div>
 
       <ul className="space-y-2.5 flex-1 mb-6">
