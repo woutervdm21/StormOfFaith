@@ -79,14 +79,17 @@ export default function WhyMe() {
             >
               {/* Ghost number */}
               <span
-                className="absolute top-3 right-5 font-serif font-light pointer-events-none select-none"
+                className="absolute top-3 right-5 font-serif font-light pointer-events-none select-none hidden dark:block"
                 style={{ fontSize: '5rem', lineHeight: 1, color: 'transparent',
-                  WebkitTextStroke: '1px rgba(124,92,252,0.07)' }}
+                  WebkitTextStroke: '1px rgba(124,92,252,0.22)' }}
               >
                 {p.num}
               </span>
-
-              <span className="block text-xs tracking-[0.28em] uppercase dark:text-neon/80 text-neon font-semibold mb-4">
+              <span
+                className="absolute top-3 right-5 font-serif font-light pointer-events-none select-none dark:hidden"
+                style={{ fontSize: '5rem', lineHeight: 1, color: 'transparent',
+                  WebkitTextStroke: '1px rgba(124,92,252,0.35)' }}
+              >
                 {p.num}
               </span>
 
