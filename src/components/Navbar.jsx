@@ -4,6 +4,7 @@ import { useTheme } from '../context/ThemeContext'
 const links = [
   { label: 'Home',      href: '#home'      },
   { label: 'About',     href: '#about'     },
+  { label: 'Why Me',    href: '#why-me'    },
   { label: 'Portfolio', href: '#portfolio' },
   { label: 'Contact',   href: '#contact'   },
 ]

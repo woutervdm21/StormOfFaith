@@ -50,7 +50,7 @@ export default function WhyMe() {
   const { ref, visible } = useFadeIn()
 
   return (
-    <section className="py-24 px-6 dark:bg-deep bg-white border-y dark:border-white/[0.04] border-neon/8">
+    <section id="why-me" className="py-24 px-6 dark:bg-deep bg-white border-y dark:border-white/[0.04] border-neon/8">
       <div
         ref={ref}
         className={`max-w-6xl mx-auto transition-all duration-700 ease-out ${

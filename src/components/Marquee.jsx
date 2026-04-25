@@ -1,5 +1,5 @@
 const items = [
-  'Logo Design', 'Print Design', 'Digital & Web', 'Brand Identity',
+  'Logo Design', 'Print Design', 'Web Development', 'Brand Identity',
   'Business Cards', 'Packaging Design', 'Social Media', 'Web Banners',
   'Typography', 'Visual Identity', 'Event Invitations', 'Icon Design',
 ]
