@@ -33,6 +33,17 @@ const pillars = [
     title: 'Faith-led Values',
     desc: 'Design rooted in integrity, purpose, and genuine care — every project done with heart and delivered with pride.',
   },
+  {
+    num: '04',
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+      </svg>
+    ),
+    title: 'Web Development',
+    desc: 'Fully built, mobile-responsive websites — from design to deployment. Custom branding, hosting, and light/dark mode included.',
+  },
 ]
 
 export default function WhyMe() {
@@ -56,7 +67,7 @@ export default function WhyMe() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {pillars.map(p => (
             <div
               key={p.title}

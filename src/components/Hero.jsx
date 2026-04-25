@@ -67,7 +67,7 @@ export default function Hero() {
             <div className="flex items-center gap-3 mb-8">
               <span className="w-8 h-px dark:bg-neon bg-neon/50" />
               <p className="text-[10px] tracking-[0.35em] uppercase dark:text-snow/35 text-ink-soft font-medium">
-                Graphic · Web · Brand Design
+                Graphic Design · Web Development · Brand Identity
               </p>
             </div>
 

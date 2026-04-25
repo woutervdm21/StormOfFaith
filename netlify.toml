@@ -1,0 +1,19 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Enable pre-rendering so search engine crawlers see full HTML content
+[context.production]
+  environment = { NETLIFY_NEXT_PLUGIN_SKIP = "true" }
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+# SPA fallback — all routes serve index.html
+[[redirects]]
+  from = "/*"
+  to   = "/index.html"
+  status = 200
