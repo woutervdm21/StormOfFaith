@@ -148,9 +148,9 @@ export default function Portfolio() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
                 <p className="text-xs dark:text-snow/55 text-ink-soft">
-                  All web development is delivered by a{' '}
-                  <span className="dark:text-snow text-ink font-medium">professional software developer</span>
-                  {' '}with{' '}
+                  All web development is delivered by{' '}
+                  <span className="dark:text-snow text-ink font-medium">my husband</span>
+                  {' '}— a professional software developer with{' '}
                   <span className="dark:text-neon-light text-neon font-medium">10+ years of experience</span>.
                 </p>
               </div>
