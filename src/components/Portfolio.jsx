@@ -138,6 +138,26 @@ export default function Portfolio() {
             {cat.tagline}
           </p>
 
+          {/* Web dev credibility note */}
+          {active === 'digital' && (
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <div className="flex-1 h-px dark:bg-white/5 bg-neon/10 max-w-[80px]" />
+              <div className="flex items-center gap-2.5 px-4 py-2 rounded-xl
+                dark:bg-layer/50 bg-white border dark:border-white/[0.06] border-neon/12">
+                <svg className="w-4 h-4 flex-shrink-0 dark:text-neon-light text-neon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                <p className="text-xs dark:text-snow/55 text-ink-soft">
+                  All web development is delivered by a{' '}
+                  <span className="dark:text-snow text-ink font-medium">professional software developer</span>
+                  {' '}with{' '}
+                  <span className="dark:text-neon-light text-neon font-medium">10+ years of experience</span>.
+                </p>
+              </div>
+              <div className="flex-1 h-px dark:bg-white/5 bg-neon/10 max-w-[80px]" />
+            </div>
+          )}
+
           {/* Launch special banner */}
           <div className="mb-8 rounded-2xl dark:border-ember/30 border-orange-400/50 border
             dark:bg-ember/8 bg-orange-50
