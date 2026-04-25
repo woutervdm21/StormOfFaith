@@ -159,8 +159,8 @@ export default function Portfolio() {
           )}
 
           {/* Launch special banner */}
-          <div className="mb-8 rounded-2xl dark:border-ember/30 border-orange-400/50 border
-            dark:bg-ember/8 bg-orange-50
+          <div className="mb-8 rounded-2xl border border-orange-400/50 dark:border-[rgba(255,133,71,0.30)]
+            bg-orange-50 dark:bg-[rgba(255,133,71,0.09)]
             px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3
             shadow-[0_0_24px_rgba(255,133,71,0.12)]">
             <div className="flex items-center gap-3">
