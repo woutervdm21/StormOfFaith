@@ -58,10 +58,15 @@ export default function Contact() {
     const errs = validate()
     if (Object.keys(errs).length) { setErrors(errs); return }
     setSending(true)
-    await fetch('/', {
+    await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({ 'form-name': 'contact', ...form }).toString(),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        access_key: 'e17d9524-ae11-4718-9dcd-9e539a6155eb',
+        subject: `Storm of Faith — ${form.subject}`,
+        from_name: `${form.firstName} ${form.lastName}`,
+        ...form,
+      }),
     })
     navigate('/thank-you')
   }
