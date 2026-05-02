@@ -22,6 +22,7 @@ const categories = [
       { src: '/img/Color Pallette-01.webp', alt: 'Color Palette Extended' },
       { src: '/img/Vector Burger.png', alt: 'Vector Burger' },
       { src: '/img/Storm & Rose Color-01-01.png', alt: 'Storm & Rose Logo' },
+      { src: '/img/Prentjies.png', alt: 'Prentjies' },
     ],
   },
   {
@@ -63,8 +64,6 @@ const categories = [
       { src: '/img/Whatsapp profile pic-01.png', alt: 'WhatsApp Profile Picture' },
       { src: '/img/Email Signature.png', alt: 'Email Signature' },
       { src: '/img/Westcliff Banner.png', alt: 'WCMG Banner' },
-      { src: '/img/Pixel Art.png', alt: 'Pixel Art' },
-      { src: '/img/Grids.png', alt: 'Grid Art' },
       { src: '/img/Icons-01.png', alt: 'Favicon' },
     ],
   },
