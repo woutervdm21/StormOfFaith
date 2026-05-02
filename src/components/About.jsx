@@ -32,7 +32,7 @@ export default function About() {
 
           <div className="relative overflow-hidden rounded-2xl" style={{ aspectRatio: '4/5' }}>
             <img
-              src="/img/About Me_Cropped.JPG"
+              src="/img/Us.jpg"
               alt="Candice van der Merwe"
               className="w-full h-full object-cover"
               style={{ filter: 'brightness(0.96) contrast(0.98)' }}
