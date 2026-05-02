@@ -42,10 +42,7 @@ const categories = [
       { src: '/img/TTL Media (WCMG) A4.png', alt: 'TTL Media A4' },
       { src: '/img/TTL Media (WCMG) DPS.png', alt: 'TTL Media DPS' },
       { src: '/img/WCMG Advertising.png', alt: 'WCMG Advertising' },
-      { src: '/img/WCMG.png', alt: 'WCMG' },
       { src: '/img/Wedding Menu - Lord of the rings themed.png', alt: 'Wedding Menu' },
-      { src: '/img/Westcliff - Front wall Sign.png', alt: 'Westcliff Front Wall Sign' },
-      { src: '/img/Westcliff - Side wall.png', alt: 'Westcliff Side Wall' },
     ],
   },
   {
